@@ -1,0 +1,13 @@
+language: generic
+sudo: required
+services:
+  -docker
+
+before_install:
+  - docker build -t konungr/docker-react -f dockerfile.dev .
+
+script:
+  - docker run -e CI=true konungr/docker-react npm run test
+
+
+
